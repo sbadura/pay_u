@@ -25,7 +25,7 @@ module PayU
     end
 
     def refund_order(order_id, amount = nil, description = "Refund")
-      request_hash = { refund: { description: description } }.merge(refund_amount(amount))
+      request_hash = { refund: { description: description }.merge(refund_amount(amount)) }
       orders_service.refund_order(order_id, PayU::BaseRequest.new(headers, request_hash))
     end
 
