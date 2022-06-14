@@ -32,6 +32,10 @@ module PayU
         @body['extOrderId']
       end
 
+      def description
+        status.description
+      end
+
       class Status
         SUCCESS_STATUS = 'SUCCESS'
 
@@ -51,6 +55,10 @@ module PayU
           @status['codeLiteral']
         end
 
+        def description
+          @status['statusDesc']
+        end
+
         def code
           @status['code']
         end
@@ -58,4 +66,3 @@ module PayU
     end
   end
 end
-
